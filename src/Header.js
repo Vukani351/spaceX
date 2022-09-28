@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 const Header = () => (
-  <header>
+  <header className="mb-6">
     <nav className="mx-auto w-1/2">
       <span>
       <svg className="h-12 w-full" viewBox="0 0 353 44" fill="none" xmlns="http://www.w3.org/2000/svg">

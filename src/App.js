@@ -1,13 +1,15 @@
-import React from 'react'
-import Header from './Header'
-import Main from './Main'
+import React from "react";
+import Main from "./Main";
+import { QueryClient, QueryClientProvider, } from "@tanstack/react-query";
 
-const App = () => (
-  
-  <div>
-    <Header />
-    <Main />
-  </div>
-)
+export const queryClient = new QueryClient()
 
+function App() {
+  return (
+    // Provide the client to your App
+    <QueryClientProvider client={queryClient}>
+      <Main />
+    </QueryClientProvider>
+  )
+}
 export default App

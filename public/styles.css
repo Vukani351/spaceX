@@ -10,6 +10,7 @@ Document
 /**
 Use a better box model (opinionated).
 */
+
 #myInput {
     background-image: url('/css/searchicon.png'); /* Add a search icon to input */
     background-position: 10px 12px; /* Position the search icon */
@@ -213,7 +214,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
+  font1-family: inherit;
   /* 1 */
   font-size: 100%;
   /* 1 */

@@ -17,7 +17,9 @@ function Ships(){
           <div className='flex ' key={index} >
             {/* remove the border n shadow & index after setting up */}
             <div className="mx-2 grid max-w-sm rounded ">
-                <img src={ship.image} className="img rounded-lg shadow-xl" alt='Ship - from spaceX'style={{height: "10rem"}}  />
+            <img src='https://i.imgur.com/Wr1slIc.png'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='Ship - spaceX'/>
+            {/* will add onerror that works correctly after all other things work */}
+                {/* <img  onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} src={ship.image} className="img rounded-lg shadow-xl" alt='Ship - spaceX'style={{height: "10rem"}}  /> */}
                 <div className="px-2 my-4">
                     <h3 className="uppercase font-bold text-xl mb-2">{ship.name} {index}</h3>
                 </div>

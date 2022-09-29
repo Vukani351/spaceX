@@ -12,7 +12,7 @@ function Home (){
                                                                                                                     
   return (
     
-    <div className='mx-16'> 
+    <div className='mx-8'> 
       
       <div className='flex justify-between'>
         <div>

@@ -12,20 +12,22 @@ function Home (){
                                                                                                                     
   return (
     
-    <div className='mx-16'> 
+    <div className=''> 
       
       <div className='w-full'>
         <h1 className='uppercase my-5 bold text-2xl'>Rockets </h1>
       </div>
-      <div className= "flex">
+      <div className= "flex flex-wrap">
         
         {
           data?.data?.map((rocket, index) => { 
           
-            return (<> so
+            return (<>
               <div className='flex ' key={index} >
-                remove the border n shadow & index after setting up
-                <div className="mx-4  grid max-w-sm rounded ">
+                {/* remove the border n shadow & index after setting up */}
+                <div className="mx-2 grid max-w-sm rounded ">
+                    {/* will add onerror that works correctly after all other things work */}
+                    {/* <img src={rocket.flickr_images[0]} onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rocks - spaceX'/> */}
                     <img src='https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rock1'/>
                     <div className="px-6 my-4">
                         <h3 className="uppercase font-bold text-xl mb-2">{rocket.name} {index}</h3>

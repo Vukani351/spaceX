@@ -4,9 +4,9 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios';
 
 function Home (){
-  const {loading, error, data} = useQuery(['posts'], () => {return axios.get("https://api.spacexdata.com/v4/rockets")});
+  const {loading, error, data} = useQuery(['posts'], () => {return axios.get("https://api.spacexdata.com/v4/rockets/")});
   console.clear(); console.table(loading, error,  data);
-  const rockets = data.data;
+  const rockets = data;
                                                                                                                     
   return (
     
@@ -33,9 +33,11 @@ function Home (){
       </div>
       
       {
-        rockets.map((rocket, index) => { 
-          // return <p>another</p>          
-          <Card title={rocket.name} weight={rocket.weight} height={rocket.height} />
+        rockets?.data?.map((rocket, index) => { 
+         
+          return <>
+            <Card data={rocket} />
+          </>
         })
 
       }

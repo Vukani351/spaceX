@@ -1,0 +1,39 @@
+import React from "react";
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios';
+
+function Ships(){
+  const {loading, error, data} = useQuery(['ships'], () => {return axios.get("https://api.spacexdata.com/v4/ships")});
+  return (
+    
+    <div className='w-full'>
+    <h1 className='uppercase my-5 bold text-2xl'>ships </h1>
+  
+  <div className= "flex flex-wrap">
+    {
+      data?.data?.map((ship, index) => { 
+      
+        return (<>
+          <div className='flex ' key={index} >
+            {/* remove the border n shadow & index after setting up */}
+            <div className="mx-2 grid max-w-sm rounded ">
+                <img src={ship.image} className="img rounded-lg shadow-xl" alt='Ship - from spaceX'style={{height: "10rem"}}  />
+                <div className="px-2 my-4">
+                    <h3 className="uppercase font-bold text-xl mb-2">{ship.name} {index}</h3>
+                </div>
+                <div className="px-2 pt-2 pb-2">
+                    <p className="uppercase font-bold block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">mass: { ship.mass_lbs } lbs</p>
+                    <p className="uppercase font-bold block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">year built: { ship.year_built } </p>
+                </div>
+                <button className="h-12 uppercase mb-4 justify-self-center bg-black hover:bg-blue-700 text-white font-bold py-2 rounded w-11/12">  learn more </button>
+            </div>
+        </div>      
+        </>)
+      }) 
+    }    
+    </div>
+  </div>
+  );
+} 
+
+export default Ships;

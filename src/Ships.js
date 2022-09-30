@@ -27,12 +27,12 @@ function Ships(){
           </form>
         </div>
       </div>
-    <div className= "flex flex-wrap">
+    <div className= "grid grid-cols-4 gap-2">
         {
         data?.data?.map((ship, index) => { 
         
             return (<>
-            <div className='flex w-1/4' key={index} >
+            <div key={index} >
                 {/* remove the border n shadow & index after setting up */}
                 <div className="mx-2 grid max-w-sm rounded ">
                 <img src='https://i.imgur.com/Wr1slIc.png'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='Ship - spaceX'/>

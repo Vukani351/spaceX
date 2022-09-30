@@ -11,16 +11,15 @@ function Home (){
   function getKg(mass){ return (mass*9.80).toFixed(1)};
                                                                                                                     
   return (
-    
+    <div className='w-full' >
     <div className='mx-8'> 
       
       <Rockets /> 
       <Ships />
     </div>
-
+    </div>
   )
 }
-
 
 
 export default Home

@@ -6,7 +6,7 @@ import Header from "./Header";
 
 function Main (){
   return(
-    <main className="container">
+    <main className="mx-auto text-center">
       <Header/>
         <Switch>
           <Route exact path="/" component={Home} />

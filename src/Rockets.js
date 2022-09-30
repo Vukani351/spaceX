@@ -3,7 +3,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios';
 
-function Home (){
+function Rockets (){
   const {loading, error, data} = useQuery(['posts'], () => {return axios.get("https://api.spacexdata.com/v4/rockets")});
   // console.clear(); console.table( data);
 
@@ -70,4 +70,4 @@ function Home (){
 
 
 
-export default Home
+export default Rockets

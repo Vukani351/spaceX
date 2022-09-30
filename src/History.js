@@ -1,25 +1,19 @@
 import React from 'react';
-// import Card from './Card';
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 function History (){
-  const {loading, error, data} = useQuery(['posts'], () => {return axios.get("https://api.spacexdata.com/v4/rockets")});
-  // console.clear(); console.table( data);
-
-  // get the kg of that specific mass and round it to nearest integer.
-  function getKg(mass){ return (mass*9.80).toFixed(1)};
+  const {loading, error, data} = useQuery(['history'], () => {return axios.get("https://api.spacexdata.com/v4/history")});
                                                                                                                     
   return (
-    
     <div className=''> 
-      
      
       <div className='flex justify-between'>
         <div className='w-full my-2'>
-        <h1 className='uppercase pb-3 bold text-2xl'>Rockets </h1>
+        <h1 className='uppercase pb-3 bold text-2xl font-bold'>history </h1>
       </div>
-        <div className="relative w-1/2">
+        <div className="relative">
           <form className="flex items-center">   
             <label htmlFor="voice-search" className="sr-only">Search</label>
             <div className="relative w-full">
@@ -34,27 +28,28 @@ function History (){
           </form>
         </div>
       </div>
-      <div className= "flex flex-wrap">
+      <div className= "grid grid-cols-3 gap-1">
         
         {
-          data?.data?.map((rocket, index) => { 
+          data?.data?.map((article, index) => { 
           
             return (<>
-              <div className='flex w-1/4' key={index} >
+              <div className='flex' key={index} >
                 
                 {/* remove the border n shadow & index after setting up */}
-                <div className="mx-2 grid max-w-sm rounded ">
+                <div className="mx-2 grid overflow-hidden flex justify-items-center">
                     {/* will add onerror that works correctly after all other things work */}
                     {/* <img src={rocket.flickr_images[0]} onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rocks - spaceX'/> */}
                     <img src='https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rock1'/>
                     <div className="px-6 my-4">
-                        <h3 className="uppercase font-bold text-xl mb-2">{rocket.name} {index}</h3>
+                        <h3 className="text-ellipsis truncate h-14 uppercase font-bold text-xl mb-2">{article.title} {index}</h3>
                     </div>
-                    <div className="px-2 pt-2 pb-2">
-                        <p className="uppercase font-bold block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">height: { rocket.height.feet } M</p>
-                        <p className="uppercase font-bold block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">weight: { getKg(rocket.mass.kg   ) } KG</p>
+                    <div className="overflow-hidden px-2 mb-5 pb-2">
+                        <p className="uppercase h-14 my-5 font-normal rounded-md px-3 py-1 text-sm text-black mr-2 mb-2"> { article.details } </p>
                     </div>
-                    <button className="uppercase mb-4 justify-self-center bg-black hover:bg-blue-700 text-white font-bold py-2 rounded w-11/12">  learn more </button>
+                    <Link to={article.links.article} className='w-full' _target="blank">
+                      <button className="uppercase mb-4 justify-self-center bg-black hover:bg-blue-700 text-white font-bold py-2 rounded w-11/12">  view article </button>
+                    </Link>
                 </div>
               </div>
             </>)

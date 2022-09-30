@@ -5,7 +5,6 @@ import axios from 'axios';
 
 function About (){
   const {loading, error, data} = useQuery(['posts'], () => {return axios.get("https://api.spacexdata.com/v4/company")});
-  console.clear(); console.dir(data);
 
   // get the kg of that specific mass and round it to nearest integer.
   function getKg(mass){ return (mass*9.80).toFixed(1)};

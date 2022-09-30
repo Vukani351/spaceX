@@ -4,6 +4,7 @@ import axios from 'axios';
 
 function Ships(){
   const {loading, error, data} = useQuery(['ships'], () => {return axios.get("https://api.spacexdata.com/v4/ships")});
+
   return (
     
     <div className='w-full'>
@@ -31,7 +32,7 @@ function Ships(){
         data?.data?.map((ship, index) => { 
         
             return (<>
-            <div className='flex ' key={index} >
+            <div className='flex w-1/4' key={index} >
                 {/* remove the border n shadow & index after setting up */}
                 <div className="mx-2 grid max-w-sm rounded ">
                 <img src='https://i.imgur.com/Wr1slIc.png'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='Ship - spaceX'/>
@@ -56,3 +57,4 @@ function Ships(){
 } 
 
 export default Ships;
+

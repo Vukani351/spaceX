@@ -40,7 +40,7 @@ function Home (){
           data?.data?.map((rocket, index) => { 
           
             return (<>
-              <div className='flex ' key={index} >
+              <div className='flex w-1/4' key={index} >
                 
                 {/* remove the border n shadow & index after setting up */}
                 <div className="mx-2 grid max-w-sm rounded ">

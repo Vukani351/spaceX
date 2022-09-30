@@ -14,13 +14,8 @@ function Home (){
     
     <div className='mx-8'> 
       
-      <div className='flex justify-between'>
-        <div>
-          <h1 className='uppercase my-5 bold text-xl'>Vehicles </h1>
-        </div>
-      </div>
       <Rockets /> 
-        <Ships />
+      <Ships />
     </div>
 
   )

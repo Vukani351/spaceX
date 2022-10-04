@@ -11,7 +11,7 @@ function History (){
      
       <div className='flex justify-between'>
         <div className='w-full my-2'>
-        <h1 className='uppercase pb-3 bold text-2xl font-bold'>history </h1>
+        <h1 className='text-left uppercase pb-3 bold text-2xl font-bold'>history </h1>
       </div>
         <div className="relative">
           <form className="flex items-center">   

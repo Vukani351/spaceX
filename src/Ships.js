@@ -3,25 +3,27 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios';
 import { useState, useRef } from 'react';
 
-function Ships(){
-  const {loading, error, data} = useQuery(['ships'], () => {return axios.get("https://api.spacexdata.com/v4/ships")});
+function Ships({currentShips}){
+  // const {loading, error, data} = useQuery(['ships'], () => {return axios.get("https://api.spacexdata.com/v4/ships")});
 
   // search logic.
+  const data = currentShips;
+  console.log(data)
   const [ships, setships] = useState('');
   // the search result
   const [name, setName] = useState('');
-  const [foundShips, setFoundShips] = useState(data?.data);
+  const [foundShips, setFoundShips] = useState(data);
   const filter = (e) => {
     const keyword = e.target.value;
 
     if (keyword !== '') {
-      const results = data?.data.filter((ships) => {
+      const results = data.filter((ships) => {
         return ships.name.toLowerCase().startsWith(keyword.toLowerCase());
         // Use the toLowerCase() method to make it case-insensitive
       });
       setFoundShips(results);
     } else {
-      setFoundShips(data?.data);
+      setFoundShips(data);
       // If the text field is empty, show all shipss
     }
 
@@ -55,7 +57,7 @@ function Ships(){
         <div className="grid grid-cols-4 gap-2">
         
           { foundShips && foundShips.length > 0 ? ( foundShips.map((ship, index) => (
-              <div key={index} >1
+              <div key={index} >
                   <div className="mx-2 grid max-w-sm rounded ">
                     <img src='https://i.imgur.com/Wr1slIc.png'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='Ship - spaceX'/>
                     {/* will add onerror that works correctly after all other things work */}
@@ -75,9 +77,9 @@ function Ships(){
           ) : (
               <>
               {
-                data?.data?.map((ship, index) => { 
+                data?.map((ship, index) => { 
                     return (
-                    <div key={index} >2
+                    <div key={index} >
                         <div className="mx-2 grid max-w-sm rounded">
                         <img src='https://i.imgur.com/Wr1slIc.png'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='Ship - spaceX'/>
                             {/* will add onerror that works correctly after all other things work */}
@@ -102,7 +104,9 @@ function Ships(){
           
   </div>
   );
-} 
+}
+
+
 
 export default Ships;
 

@@ -1,5 +1,12 @@
 # spaceX:
->This is technical assessment from decidio, where i have to create functional react project using this space X [reference template](https://www.figma.com/file/KJfeYB8W7VTWCpEj9ar9gY/Spacex?node-id=0%3A1) for the UI and using the following liks for pulling data from the API.
+> This is technical assessment from decidio, where i have to create functional react project using this space X [reference template](https://www.figma.com/file/KJfeYB8W7VTWCpEj9ar9gY/Spacex?node-id=0%3A1) for the UI and using the following liks for pulling data from the API.
+
+### Tech Stack:
+- **Reactjs**
+- **Tailwindcss**
+- **React-pagination**
+- **Tanstack**
+- **Axios**
 
 ## Rockets:
 

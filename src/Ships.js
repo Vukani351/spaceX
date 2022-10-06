@@ -1,15 +1,13 @@
 import React from "react";
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios';
-import { useState, useRef } from 'react';
+import ReactPaginate from "react-paginate";
+import { useState, useEffect } from 'react';
 
-function Ships({currentShips}){
-  // const {loading, error, data} = useQuery(['ships'], () => {return axios.get("https://api.spacexdata.com/v4/ships")});
-
-  // search logic.
+const Ships = ({currentShips}) => {
+  // page logic.
   const data = currentShips;
-  console.log(data)
-  const [ships, setships] = useState('');
+
   // the search result
   const [name, setName] = useState('');
   const [foundShips, setFoundShips] = useState(data);
@@ -32,10 +30,10 @@ function Ships({currentShips}){
 
   return (
     
-    <div className='w-full'>
-    <div className='flex justify-between'>
-        <div className='w-full my-2'>
-        <h1 className='text-left uppercase pb-3 bold text-2xl'>Ships </h1>
+    <div className='w-full my-5'>
+      <div className='container flex justify-between'>
+        <div className='text-left w-full my-2'>
+        <h1 className='uppercase pb-3 bold text-2xl'>Ships </h1>
       </div>
         <div className="relative w-1/2">
           <form className="flex items-center">   
@@ -47,15 +45,13 @@ function Ships({currentShips}){
                 <input type="text"  value={name} onChange={filter}
                 className="bg-gray-50 border rounded-md border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-3/4 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required="" />
                 <button type="button" className="flex absolute inset-y-0 right-0 items-center pr-3">
-                    
                 </button>
             </div>    
           </form>
         </div>
       </div>
-    <div className="flex flex-row">
-        <div className="grid grid-cols-4 gap-2">
-        
+      <div className="container">
+        <div className="grid grid-cols-3 gap-2">
           { foundShips && foundShips.length > 0 ? ( foundShips.map((ship, index) => (
               <div key={index} >
                   <div className="mx-2 grid max-w-sm rounded ">
@@ -106,7 +102,53 @@ function Ships({currentShips}){
   );
 }
 
+const ShipsComponent = () => {
+  const {loading, error, data} = useQuery(['ships'], () => {return axios.get("https://api.spacexdata.com/v4/ships")});
+
+  // We start with an empty list of items.
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  // Here we use item offsets; we could also use page offsets
+  // following the API or data you're working with.
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 3;
+
+  useEffect(() => {
+    // Fetch items from another resources.
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(data?.data.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(data?.data.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, data?.data]);
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % data?.data.length;
+    setItemOffset(newOffset);
+  };
+
+  return (
+    <>
+      <Ships currentShips={currentItems} />
+      <div className='flex justify-items-ceneter mx-auto my-10'>
+        <ReactPaginate
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        pageCount={pageCount}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+        containerClassName="pagination flex mx-auto"
+        pageLinkClassName="page-num mx-3"
+        previousLinkClassName="page-num"
+        nextLinkClassName="page-num"
+        activeLinkClassName="activee boxx font-bold"
+      />
+      </div>
+      
+    </>
+  );
+};
 
 
-export default Ships;
-
+export default ShipsComponent

@@ -22,7 +22,7 @@ const Header = () => (
       <span>
         <ul className="flex justify-center mt-14 mx-16">
           <li className="mx-5">
-            <Link to="/"  className="text-zinc-600">Vehicles</Link>
+            <Link to="vehicles"  className="text-zinc-600">Vehicles</Link>
           </li> 
           <li className="mx-5">
             <Link to="about">About</Link>

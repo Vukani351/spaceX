@@ -9,7 +9,7 @@ const Pagination = ({shipsPerPage, totalShips, setCurrentPage}) => {
       <div>
         {
           pages.map((page, index) => {
-            return <button onClick={() => setCurrentPage(page)} className='mx-5 text-lg my-3 hover:bg-gray-300 px-2 py-1 rounded-sm' key={index}> {page} </button>
+            return <button onClick={() => setCurrentPage(page)} className='mx-1 text-lg my-3 hover:bg-gray-300 px-2 py-1 rounded-sm' key={index}> {page} </button>
           })
         }
       </div>

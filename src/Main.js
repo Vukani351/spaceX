@@ -10,6 +10,7 @@ function Main (){
       <Header/>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/vehicles" component={Home} />
           <Route exact path="/about" component={About} />
         </Switch>
     </main>

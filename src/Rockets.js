@@ -33,9 +33,9 @@ const Rockets = ({currentRockets}) => {
 
   return (
     <div className=''> 
-      <div className='container flex justify-between'>
+      <div className='container flex'>
         <div className='text-left w-full my-2'>
-        <h1 className='uppercase pb-3 bold text-2xl'>Rockets </h1>
+        <h1 className='ml-24 uppercase pb-3 bold text-2xl'>Rockets </h1>
       </div>
       <div className="relative w-1/2">
         <form className="flex items-center">   
@@ -54,7 +54,7 @@ const Rockets = ({currentRockets}) => {
         </form>
       </div>
       </div>
-      <div className= " ">
+      <div>
       <div className="container">
         <div className="flex">
         

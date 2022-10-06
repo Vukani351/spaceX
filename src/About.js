@@ -13,7 +13,6 @@ function About (){
     <>
      <div className=''> 
       <div className='flex justify-between'>
-        
         <div className="relative"></div>
       </div>
       <div className= "grid container">
@@ -21,10 +20,11 @@ function About (){
       <div className='w-full' >
               
           {/* remove the border n shadow & index after setting up */}
-          <div className="mx-2 grid max-w-4xl rounded ">
+          <div className="mx-2 grid rounded ">
               {/* will add onerror that works correctly after all other things work */}
               {/* <img src={rocket.flickr_images[0]} onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rocks - spaceX'/> */}
-              <img src='https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg'  className="w-full max-w-md rounded-lg shadow-xl" alt='imag'/>
+              <img src='./about_img.png'  className="w-full rounded-lg shadow-xl" alt='imag'/>
+                
               <div className="px-6 my-4">
                   <h3 className="uppercase font-semibold text-xl mb-2">{data?.data?.ceo} </h3>
               </div>

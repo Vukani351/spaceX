@@ -33,7 +33,7 @@ const Ships = ({currentShips}) => {
     <div className='w-full my-5'>
       <div className='flex'>
         <div className='text-left w-full my-2'>
-        <h1 className='ml-24 uppercase pb-3 bold text-2xl'>Ships </h1>
+        <h1 className='ml-24 uppercase pb-3 font-bold text-xl'>Ships </h1>
       </div>
         <div className="relative w-1/2">
           <form className="flex items-center">   
@@ -59,11 +59,15 @@ const Ships = ({currentShips}) => {
                     {/* will add onerror that works correctly after all other things work */}
                     {/* <img  onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} src={ship.image} className="img rounded-lg shadow-xl" alt='Ship - spaceX'style={{height: "10rem"}}  /> */}
                     <div className="px-2 my-4">
-                        <h3 className="uppercase font-bold text-xl mb-2">{ship.name} </h3>
+                        <h3 className="uppercase font-bold text-left text-xl mb-2">{ship.name} </h3>
                     </div>
-                    <div className="px-2 pt-2 pb-2">
-                        <p className="uppercase font-bold block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">mass: { ship.mass_lbs } lbs</p>
-                        <p className="uppercase font-bold block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">year built: { ship.year_built } </p>
+                    <div className="px-2 text-left pt-2 pb-2">
+                        {ship.mass_lbs &&
+                          <p className="uppercase font-bold block rounded-full px-3 py-1 text-sm font-semibold text-black mr-2 mb-2">mass: { ship.mass_lbs } lbs</p>
+                        }
+                        {!ship.mass_lbs && <p className="uppercase font-bold block rounded-full px-3 py-1 text-sm font-semibold text-red-300 mr-2 mb-2">mass Not recorded</p>
+                        }
+                        <p className="uppercase font-bold block rounded-full px-3 py-1 text-sm font-semibold text-black mr-2 mb-2">year built: { ship.year_built } </p>
                     </div>
                     <button className="h-12 uppercase mb-4 justify-self-center bg-black hover:bg-blue-700 text-white font-bold py-2 rounded w-11/12">  learn more </button>
                   </div>
@@ -81,11 +85,20 @@ const Ships = ({currentShips}) => {
                             {/* will add onerror that works correctly after all other things work */}
                             {/* <img  onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} src={ship.image} className="img rounded-lg shadow-xl" alt='Ship - spaceX'style={{height: "10rem"}}  /> */}
                             <div className="px-2 my-4">
-                                <h3 className="uppercase font-bold text-xl mb-2">{ship.name} {index}</h3>
+                                <h3 className="capitalize text-left font-bold text-xl mb-2">{ship.name} {index}</h3>
                             </div>
-                            <div className="px-2 pt-2 pb-2">
-                                <p className="uppercase font-bold block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">mass: { ship.mass_lbs } lbs</p>
-                                <p className="uppercase font-bold block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">year built: { ship.year_built } </p>
+                            <div className="px-2 text-left pt-2 pb-2">
+                                {ship.mass_lbs &&
+                                  <p className="uppercase font-bold block rounded-full px-3 py-1 text-sm font-semibold text-black mr-2 mb-2">mass: { ship.mass_lbs } lbs</p>
+                                }
+                                {ship.year_built &&
+                                  <p className="uppercase font-bold block rounded-full px-3 py-1 text-sm font-semibold text-black mr-2 mb-2">mass: { ship.year_built } </p>
+                                }
+                                {!ship.mass_lbs && <p className="uppercase font-bold block rounded-full px-3 py-1 text-sm font-semibold text-red-300 mr-2 mb-2">Mass Not recorded</p>
+                                }
+                                {!ship.year_built && <p className="uppercase font-bold block rounded-full px-3 py-1 text-sm font-semibold text-red-300 mr-2 mb-2">Year Not recorded</p>
+                                }
+                                
                             </div>
                             <button className="h-12 uppercase mb-4 justify-self-center bg-black hover:bg-blue-700 text-white font-bold py-2 rounded w-11/12">  learn more </button>
                         </div>

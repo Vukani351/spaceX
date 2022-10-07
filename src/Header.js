@@ -20,12 +20,12 @@ const Header = () => (
 
       </span>
       <span>
-        <ul className="flex justify-center mt-14 mx-16">
-          <li className="mx-5">
-            <Link to="vehicles"  className="text-zinc-600">Vehicles</Link>
+        <ul className="grid grid-cols-2 gap-6 mt-14 mx-16">
+          <li className="mx-5 text-black text-lg font-bold">
+            <Link to="vehicles" >Vehicles</Link>
           </li> 
-          <li className="mx-5">
-            <Link to="about">About</Link>
+          <li className="mx-5 text-black text-lg font-bold">
+            <Link to="about" >About</Link>
           </li>
         </ul>
       </span>

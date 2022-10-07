@@ -29,11 +29,11 @@ function History ({currentArticles}){
   };
 
   return (
-    <div className=''> 
-     <div className='flex'>
+    <div className='container'> 
+     <div className='flex my-14'>
         <div className='text-left w-full my-2'>
-        <h1 className='ml-28 uppercase pb-3 bold text-2xl'>History </h1>
-      </div>
+          <h1 className='mr-14 uppercase pb-3 font-bold text-2xl'>History </h1>
+        </div>
         <div className="relative w-1/2">
           <form className="flex items-center">   
             <label htmlFor="voice-search" className="sr-only">Search</label>
@@ -50,43 +50,45 @@ function History ({currentArticles}){
         </div>
       </div>
       <div>
-      <div className="container">
-        <div className="grid grid-cols-3 grap-2">
+      <div>
+        <div className='flex'>
           { foundArticles && foundArticles.length > 0 ? (
             foundArticles.map((article, index) => (
-              <div className='flex' key={index} >
+              <>
+                   <div className='flex 3' key={index} >
                     {/* remove the border n shadow & index after setting up */}
-                    <div className="mx-2 grid overflow-hidden justify-items-center">
+                    <div className="mx-2 grid overflow-hidden flex justify-items-center">
                         {/* will add onerror that works correctly after all other things work */}
                         {/* <img src={article.flickr_images[0]} onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rocks - spaceX'/> */}
                         <img src='https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rock1'/>
-                        <div className="px-6 my-4">
-                            <h3 className="text-ellipsis truncate h-14 uppercase font-bold text-xl mb-2">{article.title} {index}</h3>
+                        <div className="px-6 mt-8">
+                            <h3 className="text-ellipsis truncate h-14 capitalize font-bold text-xl">{article.title} {index}</h3>
                         </div>
-                        <div className="overflow-hidden px-2 mb-5 pb-2 w-full">
-                            <p className="text-ellipsis w-11/12 uppercase h-14 my-5 font-normal rounded-md px-3 py-1 text-sm text-black mr-2 mb-2"> { article.details } </p>
+                        <div className="overflow-hidden px-2 mb-5">
+                            <p className="text-ellipsis h-6 font-normal max-w-sm rounded-md px-3 text-xl text-black mr-2 mb-8"> { article.details } </p>
                         </div>
                         <Link to={article.links.article} className='w-full' _target="blank">
                           <button className="uppercase mb-4 justify-self-center bg-black hover:bg-blue-700 text-white font-bold py-2 rounded w-11/12">  view article </button>
                         </Link>
                     </div>
                   </div>
+                  </>
             ))
           ) : (
             <div className="flex">{
               name == "" && data?.map((article, index) => { 
                 return (<>
-                  <div className='flex' key={index} >
+                  <div className='flex 3' key={index} >
                     {/* remove the border n shadow & index after setting up */}
                     <div className="mx-2 grid overflow-hidden flex justify-items-center">
                         {/* will add onerror that works correctly after all other things work */}
                         {/* <img src={article.flickr_images[0]} onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rocks - spaceX'/> */}
                         <img src='https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rock1'/>
-                        <div className="px-6 my-4">
-                            <h3 className="text-ellipsis truncate h-14 uppercase font-bold text-xl mb-2">{article.title} {index}</h3>
+                        <div className="px-6 mt-8">
+                            <h3 className="text-ellipsis truncate h-14 capitalize font-bold text-xl">{article.title} {index}</h3>
                         </div>
-                        <div className="overflow-hidden px-2 mb-5 pb-2">
-                            <p className="uppercase h-14 my-5 font-normal rounded-md px-3 py-1 text-sm text-black mr-2 mb-2"> { article.details } </p>
+                        <div className="overflow-hidden px-2 mb-5">
+                            <p className="text-ellipsis h-6 font-normal max-w-sm rounded-md px-3 text-xl text-black mr-2 mb-8"> { article.details } </p>
                         </div>
                         <Link to={article.links.article} className='w-full' _target="blank">
                           <button className="uppercase mb-4 justify-self-center bg-black hover:bg-blue-700 text-white font-bold py-2 rounded w-11/12">  view article </button>

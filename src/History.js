@@ -15,7 +15,6 @@ function History ({currentArticles}){
   const [foundArticles, setFoundArticles] = useState(data?.data);
   const filter = (e) => {
     const keyword = e.target.value;
-
     if (keyword !== '') {
       const results = data.filter((article) => {
         return article.title.toLowerCase().startsWith(keyword.toLowerCase());
@@ -28,12 +27,12 @@ function History ({currentArticles}){
     }
     setName(keyword);
   };
-                                                                                                           
+
   return (
     <div className=''> 
      <div className='flex'>
         <div className='text-left w-full my-2'>
-        <h1 className='ml-24 uppercase pb-3 bold text-2xl'>History </h1>
+        <h1 className='ml-28 uppercase pb-3 bold text-2xl'>History </h1>
       </div>
         <div className="relative w-1/2">
           <form className="flex items-center">   
@@ -56,7 +55,6 @@ function History ({currentArticles}){
           { foundArticles && foundArticles.length > 0 ? (
             foundArticles.map((article, index) => (
               <div className='flex' key={index} >
-                    
                     {/* remove the border n shadow & index after setting up */}
                     <div className="mx-2 grid overflow-hidden justify-items-center">
                         {/* will add onerror that works correctly after all other things work */}
@@ -73,14 +71,12 @@ function History ({currentArticles}){
                         </Link>
                     </div>
                   </div>
-              
             ))
           ) : (
             <div className="flex">{
               name == "" && data?.map((article, index) => { 
                 return (<>
                   <div className='flex' key={index} >
-                    
                     {/* remove the border n shadow & index after setting up */}
                     <div className="mx-2 grid overflow-hidden flex justify-items-center">
                         {/* will add onerror that works correctly after all other things work */}

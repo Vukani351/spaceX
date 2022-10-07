@@ -25,11 +25,11 @@ function About (){
               {/* <img src={rocket.flickr_images[0]} onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rocks - spaceX'/> */}
               <img src='./about_img.png'  className="w-full rounded-lg shadow-xl" alt='imag'/>
                 
-              <div className="px-6 my-4">
-                  <h3 className="uppercase font-semibold text-xl mb-2">{data?.data?.ceo} </h3>
+              <div className="px-6 my-10">
+                  <h3 className="uppercase font-bold text-2xl mb-2 text-left"> about spaceX </h3>
               </div>
               <div className="px-2 pt-2 pb-2">
-                  <p className="font-normal block px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> { data?.data?.summary } </p>
+                  <p className="font-normal text-left px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> { data?.data?.summary } </p>
                   <hr className='h-5 my-8'/>
 
                   <span className='grid md:grid-cols-2 gap-4'>

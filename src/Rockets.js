@@ -16,7 +16,6 @@ const Rockets = ({currentRockets}) => {
   const [foundRockets, setFoundRockets] = useState(data?.data);
   const filter = (e) => {
     const keyword = e.target.value;
-
     if (keyword !== '') {
       const results = data.filter((rocket) => {
         return rocket.name.toLowerCase().startsWith(keyword.toLowerCase());
@@ -54,7 +53,6 @@ const Rockets = ({currentRockets}) => {
       <div>
       <div className="container">
         <div className="flex">
-        
           { foundRockets && foundRockets.length > 0 ? (
             foundRockets.map((rocket) => (
               <div className=' gap-2' key={rocket.id} >
@@ -99,7 +97,6 @@ const Rockets = ({currentRockets}) => {
       </div>
       </div>  
     </div>
-
   )
 }
 

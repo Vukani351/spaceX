@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/spacex/static/js/main.9a31944f.js",
+    "index.html": "/spacex/index.html",
+    "main.9a31944f.js.map": "/spacex/static/js/main.9a31944f.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.9a31944f.js"
+  ]
+}

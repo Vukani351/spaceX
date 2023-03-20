@@ -1,4 +1,4 @@
-[https://user-images.githubusercontent.com/43764894/223762618-62742b4e-9424-44a7-8e85-9f7e4e19db54.png](https://res.cloudinary.com/practicaldev/image/fetch/s--5b5cBF9_--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/owpo3kq4gdb1nn5mmear.jpeg)
+![me](https://res.cloudinary.com/practicaldev/image/fetch/s--5b5cBF9_--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/owpo3kq4gdb1nn5mmear.jpeg)
 
 # spaceX:
 > This is technical assessment from decidio, where i have to create functional react project using this space X [reference template](https://www.figma.com/file/KJfeYB8W7VTWCpEj9ar9gY/Spacex?node-id=0%3A1) for the UI and using the following liks for pulling data from the API.

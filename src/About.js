@@ -23,13 +23,13 @@ function About (){
           <div className="mx-2 grid rounded container">
               {/* will add onerror that works correctly after all other things work */}
               {/* <img src={rocket.flickr_images[0]} onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rocks - spaceX'/> */}
-              <img src='./about_img.png'  className="w-full h-3/4 rounded-lg shadow-xl" alt='imag'/>
+              <img src='./about_img.png'  className="w-full h-3/4 rounded-lg shadow-xl animate__animated animate__zoomIn" alt='imag'/>
                  
               <div className="px-6 mb-10`">
-                  <h3 className="uppercase font-bold text-4xl mb-2 text-left"> about spaceX </h3>
+                  <h3 className="uppercase font-bold text-lg md:text-4xl mb-2 text-left"> about spaceX </h3>
               </div>
               <div className="px-2 pt-2 pb-2">
-                  <p className="font-normal text-left px-3 py-1 text-md font-semibold text-black mr-2 mb-2"> { data?.data?.summary } </p>
+                  <p className="font-normal text-left px-3 py-1 text-sm md:text-md font-semibold text-black mr-2 mb-2"> { data?.data?.summary } </p>
                   <hr className='h-5 my-8'/>
 
                   <span className='grid md:grid-cols-2 gap-4'>

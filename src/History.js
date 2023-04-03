@@ -10,6 +10,7 @@ function History ({currentArticles}){
   // search logic.
   const [name, setName] = useState('');
   const [article, setArticle] = useState('');
+  const [searching, setSearching] = useState(false);
   // the search result
   
   const [foundArticles, setFoundArticles] = useState(data?.data);
@@ -32,19 +33,24 @@ function History ({currentArticles}){
     <div className='container'> 
      <div className='flex my-14'>
         <div className='text-left w-full my-2'>
-          <h1 className='mr-14 uppercase pb-3 font-bold text-2xl'>History </h1>
+          <h1 className='md:mr-14 uppercase pb-3 font-bold text-2xl'>History </h1>
         </div>
-        <div className="relative w-1/2">
-          <form className="flex items-center">   
+        <div className="relative w-full">
+          <form className="flex items-center justify-end">   
             <label htmlFor="voice-search" className="sr-only">Search</label>
-            <div className="relative w-full">
+            <div className="relative">
+            <span className={searching ? 'inline-flex w-full animate__animated animate__bounceInRight': 'hidden'}>
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                     <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd"></path></svg>
                 </div>
-                <input type="text"  value={name} onChange={filter}
+                <input type="text"  value={name} onChange={filter} onBlur={() => setSearching(false)}
                 className="bg-gray-50 border rounded-md border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required="" />
-                <button type="button" className="flex absolute inset-y-0 right-0 items-center pr-3">
-                </button>
+                </span>
+                <span className={searching ? 'hidden' : 'inline-flex'} onClick={() => setSearching(true)}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                  </svg>
+              </span>
             </div>    
           </form>
         </div>
@@ -60,7 +66,7 @@ function History ({currentArticles}){
                     <div className="mx-2 grid overflow-hidden flex justify-items-center">
                         {/* will add onerror that works correctly after all other things work */}
                         {/* <img src={article.flickr_images[0]} onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rocks - spaceX'/> */}
-                        <img src='https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rock1'/>
+                        <img src='https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl animate__animated animate__zoomIn" alt='rock1'/>
                         <div className="px-6 mt-8">
                             <h3 className="text-ellipsis truncate h-14 capitalize font-bold text-xl">{article.title} {index+1}</h3>
                         </div>

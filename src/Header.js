@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => (
   <header className="mb-6">
-    <nav className="mx-auto w-1/2">
+    <nav className="grid w-1/2 md:mx-auto">
       <span>
       <svg className="h-12 w-full" viewBox="0 0 353 44" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M33.0938 26.84H9.61926V21.032H39.889C39.0948 18.568 36.5355 16.28 32.0348 16.28H10.0605C5.03026 16.28 2.11801 18.128 2.11801 22.176V26.488C2.11801 30.008 5.11851 32.032 9.53101 32.032H33.2703V38.192H1.32376C2.11801 41.536 4.67726 43.296 9.26626 43.296H33.182C38.2123 43.296 40.6833 41.36 40.6833 37.224V32.912C40.6833 29.128 37.771 27.104 33.0938 26.84Z" fill="black"/>
@@ -17,10 +17,8 @@ const Header = () => (
         <path d="M272.516 30.184C270.31 31.68 268.103 33.352 265.985 34.936L277.458 43.296H290.431L272.516 30.184Z" fill="black"/>
         <path d="M352.117 0.616001C281.517 4.664 248.865 34.76 241.54 41.888L240.04 43.296H253.101C288.401 8.008 339.145 1.76 352.117 0.616001Z" fill="black"/>
       </svg>
-
       </span>
-      <span>
-        <ul className="grid grid-cols-2 gap-6 mt-14 mx-16">
+        <ul className="flex space-between gap-6 mt-14 mx-16">
           <li className="mx-5 text-black text-lg font-bold">
             <Link to="vehicles" >Vehicles</Link>
           </li> 
@@ -28,7 +26,6 @@ const Header = () => (
             <Link to="about" >About</Link>
           </li>
         </ul>
-      </span>
       
     </nav>
   </header>

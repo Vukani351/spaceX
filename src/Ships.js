@@ -13,7 +13,6 @@ const Ships = ({currentShips}) => {
   const [foundShips, setFoundShips] = useState(data);
   const filter = (e) => {
     const keyword = e.target.value;
-
     if (keyword !== '') {
       const results = data.filter((ships) => {
         return ships.name.toLowerCase().startsWith(keyword.toLowerCase());
@@ -52,7 +51,7 @@ const Ships = ({currentShips}) => {
       <div className="grid justify-center md:flex gap-2">
           { foundShips && foundShips.length > 0 ? ( foundShips.map((ship, index) => (
               <div key={index} >
-                  <div className="mx-2 grid max-w-sm rounded ">
+                  <div className="mx-2 grid max-w-sm rounded shadow-lg">
                     <img src='https://i.imgur.com/Wr1slIc.png'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='Ship - spaceX'/>
                     {/* will add onerror that works correctly after all other things work */}
                     {/* <img  onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} src={ship.image} className="img rounded-lg shadow-xl" alt='Ship - spaceX'style={{height: "10rem"}}  /> */}
@@ -78,7 +77,7 @@ const Ships = ({currentShips}) => {
                 data?.map((ship, index) => { 
                     return (
                     <div key={index} >
-                        <div className="mx-2 grid max-w-sm rounded">
+                        <div className="mx-2 grid max-w-sm rounded shadow-lg">
                         <img src='https://i.imgur.com/Wr1slIc.png'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='Ship - spaceX'/>
                             {/* will add onerror that works correctly after all other things work */}
                             {/* <img  onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} src={ship.image} className="img rounded-lg shadow-xl" alt='Ship - spaceX'style={{height: "10rem"}}  /> */}

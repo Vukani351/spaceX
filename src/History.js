@@ -51,7 +51,7 @@ function History ({currentArticles}){
       </div>
       <div>
       <div>
-        <div className='flex'>
+        <div className='grid justify-center md:flex'>
           { foundArticles && foundArticles.length > 0 ? (
             foundArticles.map((article, index) => (
               <>
@@ -62,7 +62,7 @@ function History ({currentArticles}){
                         {/* <img src={article.flickr_images[0]} onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rocks - spaceX'/> */}
                         <img src='https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rock1'/>
                         <div className="px-6 mt-8">
-                            <h3 className="text-ellipsis truncate h-14 capitalize font-bold text-xl">{article.title} {index}</h3>
+                            <h3 className="text-ellipsis truncate h-14 capitalize font-bold text-xl">{article.title} {index+1}</h3>
                         </div>
                         <div className="overflow-hidden px-2 mb-5">
                             <p className="text-ellipsis h-6 font-normal max-w-sm rounded-md px-3 text-xl text-black mr-2 mb-8"> { article.details } </p>
@@ -75,15 +75,12 @@ function History ({currentArticles}){
                   </>
             ))
           ) : (
-            <div className="flex">{
+            <div className="grid justify-center md:flex">{
               name == "" && data?.map((article, index) => { 
                 return (<>
-                  <div className='flex 3' key={index} >
-                    {/* remove the border n shadow & index after setting up */}
+                  <div className='flex-3 md:mx-5 shadow-lg' key={index} >
                     <div className="mx-2 grid overflow-hidden flex justify-items-center">
-                        {/* will add onerror that works correctly after all other things work */}
-                        {/* <img src={article.flickr_images[0]} onError={({ currentTarget }) => { currentTarget.src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg";}} className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rocks - spaceX'/> */}
-                        <img src='https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rock1'/>
+                      <img src='https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg'  className="w-full max-w-sm rounded-lg overflow-hidden shadow-xl" alt='rock1'/>
                         <div className="px-6 mt-8">
                             <h3 className="text-ellipsis truncate h-14 capitalize font-bold text-xl">{article.title} {index}</h3>
                         </div>
@@ -115,7 +112,7 @@ const HistoryComponent = () => {
   const [pageCount, setPageCount] = useState(0);
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
-  const [itemOffset, setItemOffset] = useState(0);
+  const [itemOffset , setItemOffset] = useState(0);
   const itemsPerPage = 3;
 
   useEffect(() => {

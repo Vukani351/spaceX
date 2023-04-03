@@ -55,7 +55,7 @@ const Rockets = ({currentRockets}) => {
       <div className="grid justify-center md:flex">
           { foundRockets && foundRockets.length > 0 ? (
             foundRockets.map((rocket) => (
-              <div className='grid grid-row-3 gap-2' key={rocket.id} >
+              <div className='grid grid-row-3 gap-2 shadow-lg' key={rocket.id} >
                 <VehicleItem id={rocket.id} name={rocket.name} height={rocket.height} mass={rocket.mass} />
               </div>              
             ))
@@ -63,7 +63,7 @@ const Rockets = ({currentRockets}) => {
             <div className="grid justify-center md:flex gap-2">{ 
               name == "" && data?.map((rocket, index) => { 
                 return (
-                  <div className='' key={index} >
+                  <div className='shadow-lg' key={index} >
                     <VehicleItem id={rocket.id} name={rocket.name} height={rocket.height} mass={rocket.mass} />
                   </div>
                 )

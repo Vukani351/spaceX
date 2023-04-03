@@ -29,7 +29,6 @@ const Ships = ({currentShips}) => {
   };
 
   return (
-    
     <div className='w-full my-5'>
       <div className='flex'>
         <div className='text-left w-full my-2'>
@@ -50,8 +49,7 @@ const Ships = ({currentShips}) => {
           </form>
         </div>
       </div>
-      <div className="container">
-        <div className="grid grid-cols-3 gap-2">
+      <div className="grid justify-center md:flex gap-2">
           { foundShips && foundShips.length > 0 ? ( foundShips.map((ship, index) => (
               <div key={index} >
                   <div className="mx-2 grid max-w-sm rounded ">
@@ -108,9 +106,7 @@ const Ships = ({currentShips}) => {
                 }    
               </>
           )}
-        </div>
-      </div>
-          
+        </div>          
   </div>
   );
 }
